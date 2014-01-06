@@ -1,0 +1,269 @@
+﻿<section class="mainbar" data-ng-controller="transaccoes as vm">
+
+    <div data-ng-show="vm.isLoading" class="page-splash dissolve-animation">
+        <div data-cc-spinner="vm.spinnerOptions"></div>
+        <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>
+    </div>
+
+    <section class="matter">
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-seach">
+                        <div class="form-group">
+                            <div class="row">
+                                <input class="col-xs-4 search-query"
+                                    data-ng-model="vm.criterios.wildCard"
+                                    placeholder="Pesquisar por Número de cliente" />
+                            </div>
+
+                            <div class="row">
+                                <input type="text" datepicker-popup="{{format}}" ng-model="vm.criterios.dataInicio" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="Data de..." />
+                                {{vm.dtDe}}
+                            </div>
+                            <div class="row">
+                                <input type="text" datepicker-popup="{{format}}" ng-model="vm.criterios.dataFim" is-open="closed" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="Data ate..." />
+                                {{vm.dtAte}}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="btn-group ">
+                                <a class="btn btn-info"
+                                    data-ng-click="vm.refresh()"><i class="fa fa-refresh"></i><span>Pesquisar</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-seach">
+                        <div class="form-group">
+                            <div class="row">
+                                <input class="col-xs-8 search-query"
+                                    data-ng-model="vm.transaccoesSearch"
+                                    data-ng-keyup="vm.search($event)"
+                                    placeholder="Filtrar por guia, conta, produto, contrato ou item do contrato" />
+                            </div>
+                            <div class="row">
+                                <div class="btn-group">
+                                    <a class="btn btn-info"
+                                        data-ng-click="vm.refresh()"><i class="fa fa-refresh"></i><span>Actualizar</span></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a class="fa fa-th" data-ng-click="vm.toggleGrid()"></a>
+                <a class="fa fa-list" data-ng-click="vm.toggleList()"></a>
+            </div>
+            <div class="row">
+                <ul class="{{vm.ulClass}}">
+                    <li data-ng-repeat="t in vm.transaccoes">
+                        <div data-ng-switch on="t.tipoTransaccao">
+
+                            <div ng-switch-when="Entrega e Recolha" title="Entrega e Recolha">
+                                <div class="offer offer-danger">
+                                    <div class="shape">
+                                        <div class="shape-text">
+                                            ER
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="offer-content">
+                                        <h6><span class="fa fa-truck"></span> {{t.ctGuiaID}}</h6>
+                                        <p>
+                                            <span class="fa fa-user"></span> {{t.dCom}}
+                                        </p>
+                                        <p>
+                                            <span class="fa fa-clock-o"></span> <i>{{t.dataTransaccao}}</i>
+                                        </p>
+                                    </div>
+                                    <div class="offer-footer offer-danger">
+                                        <ul class="list-inline">
+                                            <li data-ng-repeat="s in t.servicos">
+                                                <div data-ng-switch on="s.servico">
+                                                    <div ng-switch-when="RHP">
+                                                        <span class="fa fa-medkit fa-lg rhp" title="RPH"></span>
+                                                    </div>
+                                                    <div ng-switch-when="SPOA">
+                                                        <span class="fa fa-github-alt fa-lg spoa" title="SPOA"></span>
+                                                    </div>
+                                                    <div ng-switch-when="Outros resíduos perigosos">
+                                                        <span class="fa fa-tint fa-lg liq" title="LIQ."></span>
+                                                    </div>
+                                                     <div ng-switch-when="Resíduos não perigosos">
+                                                        <span class="fa fa-renren fa-lg np" title="Resíduos não perigosos"></span>
+                                                    </div>
+                                                     <div ng-switch-when="Equipamentos e consumíveis">
+                                                        <span class="fa fa-qrcode fa-lg cons" title="Equipamentos e consumíveis"></span>
+                                                    </div>
+                                                    
+                                                    
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when="So Entrega" title="Entrega">
+                                <div class="offer offer-success">
+                                    <div class="shape">
+                                        <div class="shape-text">
+                                            E
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="offer-content">
+                                        <h6><span class="fa fa-truck"></span> {{t.ctGuiaID}}</h6>
+                                        <p>
+                                            <span class="fa fa-user"></span> {{t.dCom}}
+                                        </p>
+                                        <p>
+                                            <span class="fa fa-clock-o"></span><i> {{t.dataTransaccao}}</i>
+                                        </p>
+                                    </div>
+                                    <div class="offer-footer offer-success">
+                                        <ul class="list-inline">
+                                            <li data-ng-repeat="s in t.servicos">
+                                                <div data-ng-switch on="s.servico">
+                                                    <div ng-switch-when="RHP">
+                                                        <span class="fa fa-medkit fa-lg rhp" title="RPH"></span>
+                                                    </div>
+                                                    <div ng-switch-when="SPOA">
+                                                        <span class="fa fa-github-alt fa-lg spoa" title="SPOA"></span>
+                                                    </div>
+                                                    <div ng-switch-when="Outros resíduos perigosos">
+                                                        <span class="fa fa-tint fa-lg liq" title="LIQ."></span>
+                                                    </div>
+                                                      <div ng-switch-when="Resíduos não perigosos">
+                                                        <span class="fa fa-renren fa-lg np" title="Resíduos não perigosos"></span>
+                                                    </div>
+                                                     <div ng-switch-when="Equipamentos e consumíveis">
+                                                        <span class="fa fa-qrcode fa-lg cons" title="Equipamentos e consumíveis"></span>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when="So Recolha" title="Recolha">
+                                <div class="offer offer-primary">
+                                    <div class="shape">
+                                        <div class="shape-text">
+                                            R
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="offer-content">
+                                        <h6><span class="fa fa-truck"></span> {{t.ctGuiaID}}</h6>
+                                        <p>
+                                            <span class="fa fa-user"></span> {{t.dCom}}
+                                        </p>
+                                        <p>
+                                            <span class="fa fa-clock-o"></span><i> {{t.dataTransaccao}}</i>
+                                        </p>
+                                    </div>
+                                    <div class="offer-footer offer-primary">
+                                        <ul class="list-inline">
+                                            <li data-ng-repeat="s in t.servicos">
+                                                <div data-ng-switch on="s.servico">
+                                                    <div ng-switch-when="RHP">
+                                                        <span class="fa fa-medkit fa-lg rhp" title="RPH"></span>
+                                                    </div>
+                                                    <div ng-switch-when="SPOA">
+                                                        <span class="fa fa-github-alt fa-lg spoa" title="SPOA"></span>
+                                                    </div>
+                                                    <div ng-switch-when="Outros resíduos perigosos">
+                                                        <span class="fa fa-tint fa-lg liq" title="LIQ."></span>
+                                                    </div>
+                                                      <div ng-switch-when="Resíduos não perigosos">
+                                                        <span class="fa fa-renren fa-lg np" title="Resíduos não perigosos"></span>
+                                                    </div>
+                                                     <div ng-switch-when="Equipamentos e consumíveis">
+                                                        <span class="fa fa-qrcode fa-lg cons" title="Equipamentos e consumíveis"></span>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when="Sem Detalhe" title="Guia sem detalhe">
+                                <div class="offer offer-default">
+                                    <div class="shape">
+                                        <div class="shape-text">
+                                            -
+                                        </div>
+                                    </div>
+                                    <br />
+                                    <div class="offer-content">
+                                        <h6><span class="fa fa-truck"></span> {{t.ctGuiaID}}</h6>
+                                        <p>
+                                            <span class="fa fa-user"></span> {{t.dCom}}
+                                        </p>
+                                        <p>
+                                            <span class="fa fa-clock-o"></span><i> {{t.dataTransaccao}}</i>
+                                        </p>
+                                    </div>
+                                    <div class="offer-footer offer-default">
+                                        <ul class="list-inline">
+                                            <li data-ng-repeat="s in t.servicos">
+                                                <div data-ng-switch on="s.servico">
+                                                    <div ng-switch-when="RHP">
+                                                        <span class="fa fa-medkit fa-lg rhp" title="RPH"></span>
+                                                    </div>
+                                                    <div ng-switch-when="SPOA">
+                                                        <span class="fa fa-github-alt fa-lg spoa" title="SPOA"></span>
+                                                    </div>
+                                                    <div ng-switch-when="Outros resíduos perigosos">
+                                                        <span class="fa fa-tint fa-lg liq" title="LIQ."></span>
+                                                    </div>
+                                                      <div ng-switch-when="Resíduos não perigosos">
+                                                        <span class="fa fa-renren fa-lg np" title="Resíduos não perigosos"></span>
+                                                    </div>
+                                                     <div ng-switch-when="Equipamentos e consumíveis">
+                                                        <span class="fa fa-qrcode fa-lg cons" title="Equipamentos e consumíveis"></span>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+            </div>
+            <div class="clearfix"></div>
+            <pagination boundary-links="true"
+                on-select-page="vm.pageChanged(page)"
+                total-items="vm.transaccoesFilteredCount"
+                items-per-page="vm.paging.pageSize"
+                page="vm.paging.currentPage"
+                max-size="vm.paging.maxPagesToShow"
+                class="pagination-small"
+                previous-text="Anterior"
+                next-text="Próximo"
+                first-text="Primeiro"
+                last-text="Último">
+
+            </pagination>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+</section>

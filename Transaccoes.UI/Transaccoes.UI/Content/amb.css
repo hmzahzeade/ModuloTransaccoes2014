@@ -1,0 +1,228 @@
+﻿.widget .panel-body {
+    padding: 0px;
+}
+
+.widget .list-group {
+    margin-bottom: 0;
+}
+
+.widget .panel-title {
+    display: inline;
+}
+
+.widget .label-info {
+    float: right;
+}
+
+.widget li.list-group-item {
+    border-radius: 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+    .widget li.list-group-item:hover {
+        background-color: rgba(86,61,124,.1);
+    }
+
+.widget .mic-info {
+    color: #666666;
+    font-size: 11px;
+}
+
+.widget .action {
+    margin-top: 5px;
+}
+
+.widget .comment-text {
+    font-size: 12px;
+}
+
+.widget .btn-block {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.icon-color-red {
+    color: #ca2222;
+}
+
+.icon-color-green {
+    color: #2a8f2f;
+}
+
+.icon-color-blue {
+    color: #146e9c;
+}
+
+.icon-color-violet {
+    color: #850ea8;
+}
+
+
+
+.shape {
+    border-style: solid;
+    border-width: 0 70px 40px 0;
+    float: right;
+    height: 0px;
+    width: 0px;
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -o-transform: rotate(360deg); /* Opera 10.5 */
+    -webkit-transform: rotate(360deg); /* Safari and Chrome */
+    transform: rotate(360deg);
+    z-index:999998;
+}
+
+.shape-bottom {
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    float: right;
+    height: 0px;
+    width: 0px;
+    border-color: transparent #5cb85c transparent transparent;
+    border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0);
+}
+
+.offer-footer {
+    min-height: 40px;
+    max-height: 40px;
+    margin-top: 1px;
+    margin-bottom: 14px;
+    border-top: 1px solid #999999;
+    margin-top: 73px;
+    padding: 5px 20px 10px;
+}
+
+.offer {
+    background: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    margin: 1px 0;
+    overflow: hidden;
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 210px;
+    max-height: 210px;
+    transition: 0.3s ease-in-out;
+}
+
+.offer-radius {
+    border-radius: 7px;
+}
+
+.offer-danger {
+    border-color: #d9534f;
+}
+
+    .offer-danger .shape {
+        border-color: transparent #d9534f transparent transparent;
+        border-color: rgba(255,255,255,0) #d9534f rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+.offer-success {
+    border-color: #5cb85c;
+}
+
+    .offer-success .shape {
+        border-color: transparent #5cb85c transparent transparent;
+        border-color: rgba(255,255,255,0) #5cb85c rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+.offer-default {
+    border-color: #999999;
+}
+
+    .offer-default .shape {
+        border-color: transparent #999999 transparent transparent;
+        border-color: rgba(255,255,255,0) #999999 rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+.offer-primary {
+    border-color: #428bca;
+}
+
+    .offer-primary .shape {
+        border-color: transparent #428bca transparent transparent;
+        border-color: rgba(255,255,255,0) #428bca rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+.offer-info {
+    border-color: #5bc0de;
+}
+
+    .offer-info .shape {
+        border-color: transparent #5bc0de transparent transparent;
+        border-color: rgba(255,255,255,0) #5bc0de rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+.offer-warning {
+    border-color: #f0ad4e;
+}
+
+    .offer-warning .shape {
+        border-color: transparent #f0ad4e transparent transparent;
+        border-color: rgba(255,255,255,0) #f0ad4e rgba(255,255,255,0) rgba(255,255,255,0);
+    }
+
+
+
+
+.shape-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    right: -45px;
+    top: -3px;
+    white-space: nowrap;
+    -ms-transform: rotate(30deg); /* IE 9 */
+    -o-transform: rotate(360deg); /* Opera 10.5 */
+    -webkit-transform: rotate(30deg); /* Safari and Chrome */
+    transform: rotate(30deg);
+}
+
+.offer-content {
+    padding: 0 20px 10px;
+    max-height: 70px;
+    min-height: 70px;
+}
+
+.rhp {
+    color: #d9534f;
+}
+
+.spoa {
+    color: #5cb85c;
+}
+
+.liq {
+    color: #428bca;
+}
+
+.np {
+    color: #850ea8;
+}
+
+.cons {
+    color: #ff6a00;
+}
+
+ul.list-unstyled{
+    margin-left:0px;
+}
+ul.list-unstyled * div.offer {
+    max-width: 100%;
+    
+}
+
+ul.list-unstyled * div.offer:hover {
+      -webkit-transform: scale(1.01);
+    transform:scale(1.01);
+    z-index:999999;
+}
+
+.offer:hover{
+    -webkit-transform: scale(1.1);
+    transform:scale(1.1);
+    z-index:999999;
+}
